@@ -1,0 +1,16 @@
+name: Build C Project
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile C code
+        run: |
+          sudo apt update
+          sudo apt install build-essential -y
+          make
